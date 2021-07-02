@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div`
-  height: 800px;
-  width: 800px;
+  height: 100%;
+  width: 100%;
+
 `;
 
 export const Header = styled.div`
