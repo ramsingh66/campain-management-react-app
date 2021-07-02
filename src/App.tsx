@@ -1,11 +1,13 @@
-import './App.css';
+/** @jsxImportSource @emotion/react */
+
 import { CampaignHome } from './campaignHome';
+import {Container} from './App.styles'
 
 function App() {
   return (
-    <div className="App">
+    <Container >
         <CampaignHome/>
-    </div>
+    </Container>
   );
 }
 
