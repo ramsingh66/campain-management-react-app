@@ -1,9 +1,10 @@
 import { Tabs } from "../tabs";
+import { Container,Header } from "./CampaignHome.styles";
 
 export const CampaignHome = () => {
   return (
-    <div>
-      Manage Campaigns
+    <Container>
+      <Header>Manage Campaigns</Header>
       <Tabs
         tabs={[
           { name: "Upcoming Campaigns", renderTab: () => "Upcoming" },
@@ -11,6 +12,6 @@ export const CampaignHome = () => {
           { name: "Past Campaigns", renderTab: () => "Past" },
         ]}
       />
-    </div>
+    </Container>
   );
 };

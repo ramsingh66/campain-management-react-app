@@ -1,4 +1,5 @@
 import { FunctionComponent, ReactNode, useState } from "react";
+import {  TabsContainer, TabButton } from "./Tabs.styles";
 
 type Tab = {
   readonly name: string;
@@ -15,13 +16,17 @@ export const Tabs: FunctionComponent<Props> = ({ tabs }) => {
   );
 
   const tabControls = tabs.map((tab) => (
-    <button onClick={() => setSelecedTab(tab.name)} id={tab.name}>
+    <TabButton
+      onClick={() => setSelecedTab(tab.name)}
+      id={tab.name}
+      {...{primary:tab.name===selectedTab}}
+    >
       {tab.name}
-    </button>
+    </TabButton>
   ));
 
   return (
-    <div>
+    <TabsContainer>
       {tabControls}
       {tabs.map(({ renderTab, name }) => (
         <TabComponent
@@ -30,7 +35,7 @@ export const Tabs: FunctionComponent<Props> = ({ tabs }) => {
           key={name}
         />
       ))}
-    </div>
+    </TabsContainer>
   );
 };
 
