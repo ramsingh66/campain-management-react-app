@@ -1,8 +1,7 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+// TODO
+test('updates date for event', () => {
   render(<App />);
-  const linkElement = screen.getByText("Manage Campaigns");
-  expect(linkElement).toBeTruthy();
 });
