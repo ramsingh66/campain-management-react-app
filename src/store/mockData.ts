@@ -1,5 +1,5 @@
 import { EventList } from "../model";
-import { mortalCombat, nfsmw, pubgMobile, pubgPC, battleRoyale, gameEvil, realRacing } from './icons';
+import { mortalCombat, nfsmw, pubgMobile, pubgPC, battleRoyale, gameEvil, realRacing } from '../icons';
 
 const today = Date.now();
 
