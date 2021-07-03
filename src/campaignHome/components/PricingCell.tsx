@@ -39,13 +39,11 @@ export const PricingCell = () => {
       <button className="price_button" onClick={openDialog}>
         View Pricing
       </button>
-      {showDialog && (
-        <Dialog
-          onClose={closeDialog}
-          renderDialog={renderDialog}
-          show={showDialog}
-        />
-      )}
+      <Dialog
+        onClose={closeDialog}
+        renderDialog={renderDialog}
+        show={showDialog}
+      />
     </Cell20Percent>
   );
 };

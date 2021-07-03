@@ -13,7 +13,7 @@ export const TabContent: FunctionComponent<Props> = ({ eventList }) => {
     <div>
       <TableHeader />
       {eventList.map((eventData) => (
-        <EventDataContextProvider {...eventData}>
+        <EventDataContextProvider {...eventData} key={eventData.name}>
           <EventRow />
         </EventDataContextProvider>
       ))}

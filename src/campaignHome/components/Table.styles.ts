@@ -22,8 +22,7 @@ padding: 0 5px;
 }
 .price_button,
 .csv_link ,
-.report_link, 
-.calender_button {
+.report_link {
     text-decoration:none;
     color: black;
     font-size: 11px;
@@ -34,6 +33,11 @@ padding: 0 5px;
     :hover {
         color: blue;
     }
+}
+
+.date_input{
+    cursor: pointer !important;
+    border: 1px solid #1919196e;
 }
 `;
 

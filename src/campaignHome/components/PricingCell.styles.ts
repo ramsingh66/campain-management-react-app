@@ -6,7 +6,13 @@ export const DialogContainer = styled.div`
     .image_container{
         display: flex;
         .name_region{
+            font-size: 13px;
+            display:flex;
+            flex-direction:column;
             justify-content: flex-end;
+            .region{
+                font-style: italic;
+            }
         }
     }
     .pricing_header{

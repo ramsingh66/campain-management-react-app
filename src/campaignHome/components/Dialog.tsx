@@ -1,4 +1,5 @@
 import { FunctionComponent, ReactNode } from "react";
+import Modal from "@material-ui/core/Modal";
 import { DialogBox } from "./Dialog.styles";
 
 export const Dialog: FunctionComponent<{
@@ -10,11 +11,13 @@ export const Dialog: FunctionComponent<{
     return null;
   }
   return (
-    <DialogBox id="campaign-dialog-box">
-      <div className="content">{renderDialog()}</div>
-      <button onClick={onClose} className="close_button">
-        Close
-      </button>
-    </DialogBox>
+    <Modal open={show}>
+      <DialogBox>
+        {renderDialog()}
+        <button onClick={onClose} className="close_button">
+          Close
+        </button>
+      </DialogBox>
+    </Modal>
   );
 };
