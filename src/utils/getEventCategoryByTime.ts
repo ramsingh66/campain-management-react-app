@@ -1,3 +1,4 @@
+import moment from 'moment'
 import { EventData, EventList } from "../model";
 
 export function getEventCategoryByTime (eventList:EventList){
@@ -5,12 +6,13 @@ export function getEventCategoryByTime (eventList:EventList){
     const liveEvents:Array<EventData>=[];
     const upcomingEvents:Array<EventData>=[];
     
-    const currentTime = Date.now();
+    const start =moment().startOf('day').valueOf();
+    const end =moment().endOf('day').valueOf();
     
     eventList.forEach(event=> {
-      if(event.createdOn > currentTime){
+      if(event.createdOn > end){
         upcomingEvents.push(event);
-      } else if(event.createdOn+ event.duration > currentTime){
+      } else if(event.createdOn>= start){
         liveEvents.push(event);
       }else{
         prevEvents.push(event)

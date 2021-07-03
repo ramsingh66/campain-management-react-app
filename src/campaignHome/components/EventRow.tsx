@@ -1,26 +1,30 @@
-import { FunctionComponent, useMemo } from "react";
+import { FunctionComponent } from "react";
 import { EventData } from "../../model";
-import { Cell20Percent,Cell30Percent, Row } from "./Table.styles";
+import { CampaignNameCell } from "./CampaignNameCell";
+import { CampaignDateCell } from "./CampaingnDateCell";
+import { PricingCell } from "./PricingCell";
+import { Cell30Percent, Row } from "./Table.styles";
 
 export const EventRow: FunctionComponent<EventData> = ({
   name,
   region,
   createdOn,
-  duration,
   imageUrl,
   csvUrl,
   price,
   reportUrl,
 }) => {
-  const date = useMemo(()=> new Date(createdOn).toDateString(),[createdOn]);
   return (
-  
     <Row>
-      <Cell20Percent>{date}</Cell20Percent>
-      <Cell30Percent>{name}</Cell30Percent>
-      <Cell20Percent>{price}</Cell20Percent>
+      <CampaignDateCell createdOn={createdOn} />
+      <CampaignNameCell name={name} imageUrl={imageUrl} region={region} />
+      <PricingCell
+        price={price}
+        imageUrl={imageUrl}
+        name={name}
+        region={region}
+      />
       <Cell30Percent>Rest Actions</Cell30Percent>
-
     </Row>
   );
 };

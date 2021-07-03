@@ -15,5 +15,6 @@ export const TabButton = styled.button`
   color: ${(props:any) => props.primary?'green':'black'};
   border-bottom: ${(props:any) => props.primary?'1px solid green':'none'};
   font-weight: 700;
+  cursor: pointer;
 `;
 
