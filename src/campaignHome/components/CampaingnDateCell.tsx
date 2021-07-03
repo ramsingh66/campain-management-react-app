@@ -1,10 +1,12 @@
-import { FunctionComponent, useMemo } from "react";
-import { EventData } from "../../model";
+import {  useMemo } from "react";
+import { useEventDataContext } from "../../context";
 import { getDurationText } from "../../utils";
 import { DateCell } from "./Table.styles";
 
-export const CampaignDateCell: FunctionComponent<Pick<EventData, "createdOn">> =
-  ({ createdOn }) => {
+export const CampaignDateCell =
+  () => {
+    const {createdOn} = useEventDataContext();
+    
     const startDate = useMemo(
       () => new Date(createdOn).toDateString(),
       [createdOn]

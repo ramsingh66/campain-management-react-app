@@ -1,10 +1,8 @@
-import { FunctionComponent } from "react";
-import { EventData } from "../../model";
+import { useEventDataContext } from "../../context";
 import { Cell25Percent, Image } from "./Table.styles";
 
-export const CampaignNameCell: FunctionComponent<
-  Pick<EventData, "name" | "imageUrl" | "region">
-> = ({ name, imageUrl, region }) => {
+export const CampaignNameCell = () => {
+  const { name, imageUrl, region } = useEventDataContext();
   return (
     <Cell25Percent>
       <Image src={imageUrl} alt="</>" />

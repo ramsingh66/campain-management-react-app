@@ -1,13 +1,12 @@
-import { FunctionComponent, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
+import { useEventDataContext } from "../../context";
 import { priceLogo } from "../../icons";
-import { EventData } from "../../model";
 import { Dialog } from "./Dialog";
 import { DialogContainer, DialogImage } from "./PricingCell.styles";
 import { Cell20Percent, SmallImage } from "./Table.styles";
 
-export const PricingCell: FunctionComponent<
-  Pick<EventData, "price" | "imageUrl" | "name" | "region">
-> = ({ price, name, imageUrl, region }) => {
+export const PricingCell = () => {
+  const { name, imageUrl, region } = useEventDataContext();
   const [showDialog, setShowDialog] = useState(false);
 
   const openDialog = useCallback(() => {
@@ -29,10 +28,10 @@ export const PricingCell: FunctionComponent<
           </div>
         </div>
         <div className="pricing_header">Pricing</div>
-        <Prices price={price} />
+        <Prices />
       </DialogContainer>
     );
-  }, [imageUrl, name, region, price]);
+  }, [imageUrl, name, region]);
 
   return (
     <Cell20Percent>
@@ -58,7 +57,9 @@ export const PricingCell: FunctionComponent<
 // 6 Month   $200
 // 1 Year   $300
 
-const Prices: FunctionComponent<Pick<EventData, "price">> = ({ price }) => {
+const Prices = () => {
+  const { price } = useEventDataContext();
+
   return (
     <>
       {["1 Week - 1 Month", "6 Month", "1 Year"].map((duration, index) => (
