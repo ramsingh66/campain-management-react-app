@@ -18,7 +18,7 @@ export const Tabs: FunctionComponent<Props> = ({ tabs }) => {
   const tabControls = tabs.map((tab) => (
     <TabButton
       onClick={() => setSelecedTab(tab.name)}
-      id={tab.name}
+      key={tab.name}
       {...{primary:tab.name===selectedTab}}
     >
       {tab.name}

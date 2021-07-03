@@ -1,16 +1,19 @@
+import moment from "moment";
 import { useEventDataContext } from "../../context";
-import { csvLogo, reportLogo, calendarLogo } from "../../icons";
+import { csvLogo, reportLogo } from "../../icons";
 import { Cell35Percent, SmallImage } from "./Table.styles";
 
 export const ActionsCell = () => {
-  const { csvUrl, reportUrl } = useEventDataContext();
+  const { csvUrl, reportUrl, createdOn } = useEventDataContext();
+
+  const date = moment(createdOn).format('yyyy-MM-DD');
+
   return (
     <Cell35Percent>
       <SmallImage src={csvLogo} alt="</>" />
       <a className="csv_link" href={csvUrl} rel="noreferrer" target="_blank">
         CSV
       </a>
-
       <SmallImage src={reportLogo} alt="</>" />
       <a
         className="report_link"
@@ -20,9 +23,7 @@ export const ActionsCell = () => {
       >
         Report
       </a>
-
-      <SmallImage src={calendarLogo} alt="</>" />
-      <button className="calender_button">Schedule Again</button>
+      <input type="date" value={date} onChange={event=> console.log(Date.parse(event.target.value))} />
     </Cell35Percent>
   );
 };
