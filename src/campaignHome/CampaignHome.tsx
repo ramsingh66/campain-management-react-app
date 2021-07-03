@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import { mockData } from "../store";
 import { Tabs } from "../tabs";
+import { getEventCategoryByTime } from "../utils";
 import { Container, Header } from "./CampaignHome.styles";
-import { getEventCategoryByTime } from "./getEventCategoryByTime";
 import { TabContent } from "./TabContent";
 
 export const CampaignHome = () => {

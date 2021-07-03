@@ -1,6 +1,13 @@
 import { FunctionComponent, useMemo } from "react";
 import { EventData } from "../../model";
-import { Cell20Percent, Cell30Percent, Row, Image,DateCell } from "./Table.styles";
+import { getDurationText } from "../../utils";
+import {
+  Cell20Percent,
+  Cell30Percent,
+  Row,
+  Image,
+  DateCell,
+} from "./Table.styles";
 
 export const EventRow: FunctionComponent<EventData> = ({
   name,
@@ -38,10 +45,12 @@ const CampaignCell: FunctionComponent<
 const DateAndDuration: FunctionComponent<Pick<EventData, "createdOn">> = ({
   createdOn,
 }) => {
-  const startDate = useMemo(() => new Date(createdOn).toDateString(), [createdOn]);
-  const todayDate = Date.now();
+  const startDate = useMemo(
+    () => new Date(createdOn).toDateString(),
+    [createdOn]
+  );
 
-  const duratoinInDays = getDurationInfo(createdOn - todayDate);
+  const duratoinInDays = getDurationText(createdOn);
   return (
     <DateCell>
       <span>{startDate}</span>
@@ -49,19 +58,3 @@ const DateAndDuration: FunctionComponent<Pick<EventData, "createdOn">> = ({
     </DateCell>
   );
 };
-
-const DAY = 3600 * 1000 * 24;
-
-// convertig a duration into days info.
-// if absolyte duration is within 1 day, return now
-// else return X days [ago/later] based on duration negative/positive
-
-function getDurationInfo(pendingDuration: number): string {
-  const days = Math.floor(Math.abs(pendingDuration / DAY));
-
-  if (!days) {
-    return "Now";
-  }
-
-  return `${days} Days ${pendingDuration > 0 ? "Later" : "Ago"}`;
-}
