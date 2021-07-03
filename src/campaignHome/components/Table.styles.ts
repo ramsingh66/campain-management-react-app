@@ -6,7 +6,7 @@ flex-direction: row;
 width:100%;
 height: 50px;
 max-width: 800px;
-font-size: 12px;
+font-size: 11px;
 font-weight: 600;
 align-items: center;
 border: 1px solid #19191926;
@@ -20,10 +20,17 @@ padding: 0 5px;
         font-style: italic;
     }
 }
-.price_button {
+.price_button,
+.csv_link ,
+.report_link, 
+.calender_button {
+    text-decoration:none;
+    color: black;
+    font-size: 11px;
     background: transparent;
     border:none;
     cursor: pointer;
+    padding: 0 20px 0 0;
     :hover {
         color: blue;
     }
@@ -44,8 +51,13 @@ display:flex;
 `;
 
 
-export const Cell30Percent = styled.div`
-width: 30%;
+export const Cell25Percent = styled.div`
+width: 25%;
+display:flex;
+`;
+
+export const Cell35Percent = styled.div`
+width: 35%;
 display:flex;
 `;
 
