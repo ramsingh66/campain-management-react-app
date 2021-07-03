@@ -5,7 +5,6 @@ export type EventData = {
     readonly name: string,
     readonly region: string,
     readonly createdOn: CreationTime,
-    readonly duration: number;
     readonly price: number,
     readonly csvUrl: string,
     readonly reportUrl: string,
