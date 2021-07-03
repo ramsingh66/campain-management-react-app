@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import { EventDataContextProvider } from "../context";
 import { EventList } from "../model";
 import { TableHeader } from "./components";
 import { EventRow } from "./components";
@@ -10,9 +11,11 @@ type Props = {
 export const TabContent: FunctionComponent<Props> = ({ eventList }) => {
   return (
     <div>
-      <TableHeader/>
+      <TableHeader />
       {eventList.map((eventData) => (
-        <EventRow {...eventData} />
+        <EventDataContextProvider {...eventData}>
+          <EventRow />
+        </EventDataContextProvider>
       ))}
     </div>
   );
