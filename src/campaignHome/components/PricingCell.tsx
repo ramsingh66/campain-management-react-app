@@ -2,10 +2,8 @@ import { FunctionComponent, useCallback, useState } from "react";
 import { priceLogo } from "../../icons";
 import { EventData } from "../../model";
 import { Dialog } from "./Dialog";
-import { DialogContainer ,DialogImage} from "./PricingCell.styles";
-import { Cell20Percent,  SmallImage } from "./Table.styles";
-
-
+import { DialogContainer, DialogImage } from "./PricingCell.styles";
+import { Cell20Percent, SmallImage } from "./Table.styles";
 
 export const PricingCell: FunctionComponent<
   Pick<EventData, "price" | "imageUrl" | "name" | "region">
@@ -38,7 +36,7 @@ export const PricingCell: FunctionComponent<
 
   return (
     <Cell20Percent>
-      <SmallImage src={priceLogo} alt="</>" className="small" />
+      <SmallImage src={priceLogo} alt="</>" />
       <button className="price_button" onClick={openDialog}>
         View Pricing
       </button>

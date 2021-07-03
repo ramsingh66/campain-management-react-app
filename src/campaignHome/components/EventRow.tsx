@@ -1,9 +1,10 @@
 import { FunctionComponent } from "react";
 import { EventData } from "../../model";
+import { ActionsCell } from "./ActionsCell";
 import { CampaignNameCell } from "./CampaignNameCell";
 import { CampaignDateCell } from "./CampaingnDateCell";
 import { PricingCell } from "./PricingCell";
-import { Cell30Percent, Row } from "./Table.styles";
+import { Row } from "./Table.styles";
 
 export const EventRow: FunctionComponent<EventData> = ({
   name,
@@ -24,7 +25,7 @@ export const EventRow: FunctionComponent<EventData> = ({
         name={name}
         region={region}
       />
-      <Cell30Percent>Rest Actions</Cell30Percent>
+      <ActionsCell csvUrl={csvUrl} reportUrl={reportUrl} />
     </Row>
   );
 };
