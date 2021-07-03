@@ -13,9 +13,7 @@ export const DialogBox = styled.div`
     flex-direction:column;
     border: 1px solid grey;
     padding: 10px;
-    .content{
-        height: 220px;
-    }
+    
     .close_button {
         height: 30px;
         width: 70px;
