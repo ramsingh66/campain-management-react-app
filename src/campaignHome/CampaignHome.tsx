@@ -1,15 +1,34 @@
+import { useMemo } from "react";
+import { mockData } from "../store";
 import { Tabs } from "../tabs";
-import { Container,Header } from "./CampaignHome.styles";
+import { Container, Header } from "./CampaignHome.styles";
+import { getEventCategoryByTime } from "./getEventCategoryByTime";
+import { TabContent } from "./TabContent";
 
 export const CampaignHome = () => {
+  const { prevEvents, liveEvents, upcomingEvents } = useMemo(() => {
+    return getEventCategoryByTime(mockData);
+
+    // deps will be added with live/updating data
+  }, []);
+
   return (
     <Container>
       <Header>Manage Campaigns</Header>
       <Tabs
         tabs={[
-          { name: "Upcoming Campaigns", renderTab: () => "Upcoming" },
-          { name: "Live Campaigns", renderTab: () => "Live" },
-          { name: "Past Campaigns", renderTab: () => "Past" },
+          {
+            name: "Upcoming Campaigns",
+            renderTab: () => <TabContent eventList={upcomingEvents} />,
+          },
+          {
+            name: "Live Campaigns",
+            renderTab: () => <TabContent eventList={liveEvents} />,
+          },
+          {
+            name: "Past Campaigns",
+            renderTab: () => <TabContent eventList={prevEvents} />,
+          },
         ]}
       />
     </Container>
