@@ -11,7 +11,7 @@ export const Dialog: FunctionComponent<{
     return null;
   }
   return (
-    <Modal open={show}>
+    <Modal open={show} onEscapeKeyDown={onClose} onBlur={onClose}>
       <DialogBox>
         {renderDialog()}
         <button onClick={onClose} className="close_button">

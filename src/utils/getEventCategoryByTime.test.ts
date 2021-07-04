@@ -46,7 +46,7 @@ const MILLIS =Date.parse('2021-07-05')
 
 
 test('getEventCategoryByTime', () => {
-    jest.spyOn(global.Date,'now').mockImplementation(()=>MILLIS)
+    jest.spyOn(Date,'now').mockImplementation(()=>MILLIS)
 
     const {prevEvents,liveEvents,upcomingEvents} =getEventCategoryByTime(mockData)
 

@@ -3,9 +3,6 @@ import styled from "@emotion/styled";
 
 export const DialogBox = styled.div`
     position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 99;
     height: 250px;
     width: 250px;
     background: white;
