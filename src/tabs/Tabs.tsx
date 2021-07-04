@@ -10,10 +10,19 @@ type Props = {
   readonly tabs: ReadonlyArray<Tab>;
 };
 
+/**
+ * render list of tabs 
+ * @param tabs
+ *  list of tabs wtih tab name and a callback that does render the content for the tab
+ * We can pass any number of tabs al long as they have different names
+ */
+
 export const Tabs: FunctionComponent<Props> = ({ tabs }) => {
   const [selectedTab, setSelecedTab] = useState<string | undefined>(
     tabs[0]?.name
   );
+
+  
 
   const tabControls = tabs.map((tab) => (
     <TabButton

@@ -1,8 +1,8 @@
 import { createStore, Reducer, Store } from "redux";
-import { mockData } from "./mockData";
+import { getMockData } from "./getMockData";
 import { Action, ActionType, State } from "./types";
 
-const reducer: Reducer<State, Action> = (state: State = mockData, action: Action) => {
+const reducer: Reducer<State, Action> = (state: State = getMockData(), action: Action) => {
     switch (action.type) {
         case ActionType.CHANGE_DATE:
             const { name: actionName, createdOn } = action.payload;

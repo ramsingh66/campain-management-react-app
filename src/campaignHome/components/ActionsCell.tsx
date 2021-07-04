@@ -5,6 +5,11 @@ import { csvLogo, reportLogo } from "../../icons";
 import { changeEventDate } from "../../store";
 import { Cell35Percent, SmallImage } from "./Table.styles";
 
+// this functions never changes so keeping outside the component
+const handleDateKeyDown = (event: any) => {
+  event.preventDefault();
+};
+
 export const ActionsCell = () => {
   const { csvUrl, reportUrl, createdOn, name } = useEventDataContext();
 
@@ -18,9 +23,12 @@ export const ActionsCell = () => {
       const dateMillis = Date.parse(event.target.value);
       if (typeof dateMillis === "number" && !isNaN(dateMillis)) {
         changeEventDate(name, dateMillis);
-      }
+        console.log(
+          `changed campaign date for ${name}, from ${date} to ${event.target.value}`
+        );
+      } 
     },
-    [name]
+    [name, date]
   );
 
   return (
@@ -40,9 +48,11 @@ export const ActionsCell = () => {
       </a>
       <input
         type="date"
+        data-testid={`${name}-date-input`}
         className="date_input"
         value={date}
         onChange={handleDateChange}
+        onKeyDown={handleDateKeyDown}
       />
     </Cell35Percent>
   );

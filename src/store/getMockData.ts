@@ -3,11 +3,11 @@ import { mortalCombat, nfsmw, pubgMobile, pubgPC, battleRoyale, gameEvil, realRa
 
 const today = Date.now();
 
-export const mockData: EventList = [{
+const mockData: EventList = [{
     name: "Battle Royale",
     region: "US",
     createdOn: Date.parse('2021-09-11'),
-    price: 1200,
+    price: 1299,
     csvUrl: "https://www.gameflare.com/battle-royale-games/",
     reportUrl: "https://www.gameflare.com/battle-royale-games/",
     imageUrl: battleRoyale,
@@ -23,7 +23,7 @@ export const mockData: EventList = [{
     name: "PUBG Mobile",
     region: "US",
     createdOn: Date.parse('2021-09-10'),
-    price: 1200,
+    price: 1100,
     csvUrl: "https://www.bluestacks.com/apps/action/pubg-mobile-international-version-on-pc.html",
     reportUrl: "https://www.bluestacks.com/apps/action/pubg-mobile-international-version-on-pc.html",
     imageUrl: pubgMobile,
@@ -32,7 +32,7 @@ export const mockData: EventList = [{
     name: "PUBG",
     region: "CA, FR",
     createdOn: Date.parse('2021-06-10'),
-    price: 2500,
+    price: 2100,
     csvUrl: "https://www.pubg.com/en-us/",
     reportUrl: "https://www.pubg.com/en-us/",
     imageUrl: pubgPC,
@@ -41,7 +41,7 @@ export const mockData: EventList = [{
     name: "Mortal Combat",
     region: "FR",
     createdOn: today,
-    price: 999,
+    price: 899,
     csvUrl: "https://www.mortalkombat.com/",
     reportUrl: "https://www.mortalkombat.com/",
     imageUrl: mortalCombat,
@@ -65,3 +65,5 @@ export const mockData: EventList = [{
     imageUrl: nfsmw,
 }
 ]
+
+export const getMockData = () => mockData;
